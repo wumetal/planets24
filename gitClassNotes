@@ -1,0 +1,71 @@
+set up git
+
+working area is local work place
+
+
+make a folder
+
+1.1 git init : initialized repo
+1.2 build a file : eg. nano mars.txt
+1.3 config verb :   git config --global user.name ""
+					user.email ""
+		    			color.ui "auto"
+1.4 check the config : git config --list
+
+create files:
+
+2.1 see the status, which tells the difference need to deal with : git status
+2.2 add new file : git file .|[filename.format]+
+2.3 commit new file to repo : git commit -m "comments" //if no '-m':
+
+update a file:
+
+3.1 check the commits : git log // see all the commit comments.
+3.2 check the difference : git diff
+3.3.1 update the file : git add <the-updated-file> && git commit -m "modified"
+3.3.2 discard changes: git checkout -- <the-updated-file>
+3.4 discard specific version's change: git checkout HEAD~<ver no.> <file> // this change discard. and need to commit again.
+
+See the changing history : 
+4.1 check the 1st version diff : git diff HEAD~1 <checking file>
+4.2 check diff from 3rd to 1st : git diff HEAD~3 HEAD~1 [<FILES>]
+4.3 see the specific version content : git show HEAD~<ver no.> : <file>
+
+delete file from project:
+5.1 git rm <file>
+
+add remote repo from github : 
+6.1 git remote add origin <github-repo-url>
+6.2 check how many remot we have : git remote [-v]
+6.3 add all local files to remote repo: git push origin master
+
+
+Collaborate with each other:
+W : 	Settings -> Collaborators -> add username
+
+D : 	git clone <W's repo url>
+	do sth to files
+	git add <files>
+	git commit -m "hello from D"
+	git push origin remote
+
+W :	git pull origin master // to get the new files from collaborator
+
+Must pull first, then push. Can't do reversly unless no changes with remote.
+
+Branches:
+7.1 see all branches: git branch
+7.2 add new branche: git branch <name>
+7.3 switch to branche: git checkout <branchename>
+7.4 merge 2 branches : git merge <another barnch>
+7.5 confilct dealing: above "======" is what this branch got, below is the merging one.
+    after alter the conflict, do git add <file>, then git commit w/o any comments.
+7.6 delete branch : git branch -d <branch name>
+
+pull request:
+8.1 Go to the repo you want to clone
+8.2 fork it
+8.3 back to my repo to clone it
+8.4 do sth and pull
+8.5 create new pull request
+
